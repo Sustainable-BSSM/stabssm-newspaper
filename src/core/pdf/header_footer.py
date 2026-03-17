@@ -3,6 +3,10 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
+from src.core.pdf.fonts import FONT_NAME, register_fonts
+
+register_fonts()
+
 
 class NewsletterHeader:
     def __init__(self, title: str, issue: str, date: str):
@@ -19,11 +23,11 @@ class NewsletterHeader:
         canvas.setFillColor(colors.HexColor("#1a1a2e"))
         canvas.rect(margin, y, page_width - 2 * margin, 1, fill=1, stroke=0)
 
-        canvas.setFont("Helvetica-Bold", 16)
+        canvas.setFont(FONT_NAME, 16)
         canvas.setFillColor(colors.HexColor("#1a1a2e"))
         canvas.drawString(margin, y + 4 * mm, self.title)
 
-        canvas.setFont("Helvetica", 9)
+        canvas.setFont(FONT_NAME, 9)
         canvas.setFillColor(colors.HexColor("#888888"))
         canvas.drawRightString(page_width - margin, y + 4 * mm, f"{self.issue}  |  {self.date}")
         canvas.restoreState()
@@ -39,7 +43,7 @@ class NewsletterFooter:
         canvas.setFillColor(colors.HexColor("#cccccc"))
         canvas.rect(margin, y + 5 * mm, page_width - 2 * margin, 0.5, fill=1, stroke=0)
 
-        canvas.setFont("Helvetica", 8)
+        canvas.setFont(FONT_NAME, 8)
         canvas.setFillColor(colors.HexColor("#888888"))
         canvas.drawCentredString(page_width / 2, y, f"- {doc.page} -")
         canvas.restoreState()

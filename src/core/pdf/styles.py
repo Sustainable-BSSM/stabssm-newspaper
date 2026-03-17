@@ -2,6 +2,10 @@ from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 
+from src.core.pdf.fonts import FONT_NAME, register_fonts
+
+register_fonts()
+
 
 class NewsletterStyleSheet:
     def __init__(self):
@@ -10,6 +14,7 @@ class NewsletterStyleSheet:
         self.title = ParagraphStyle(
             "NewsletterTitle",
             parent=base["Title"],
+            fontName=FONT_NAME,
             fontSize=24,
             leading=30,
             textColor=colors.HexColor("#1a1a2e"),
@@ -19,6 +24,7 @@ class NewsletterStyleSheet:
         self.article_title = ParagraphStyle(
             "ArticleTitle",
             parent=base["Heading1"],
+            fontName=FONT_NAME,
             fontSize=14,
             leading=18,
             textColor=colors.HexColor("#16213e"),
@@ -29,6 +35,7 @@ class NewsletterStyleSheet:
         self.body = ParagraphStyle(
             "Body",
             parent=base["Normal"],
+            fontName=FONT_NAME,
             fontSize=10,
             leading=15,
             textColor=colors.HexColor("#333333"),
@@ -38,6 +45,7 @@ class NewsletterStyleSheet:
         self.caption = ParagraphStyle(
             "Caption",
             parent=base["Normal"],
+            fontName=FONT_NAME,
             fontSize=8,
             leading=12,
             textColor=colors.HexColor("#888888"),
@@ -48,6 +56,7 @@ class NewsletterStyleSheet:
         self.notice = ParagraphStyle(
             "Notice",
             parent=base["Normal"],
+            fontName=FONT_NAME,
             fontSize=10,
             leading=14,
             textColor=colors.HexColor("#1a1a2e"),
