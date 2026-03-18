@@ -1,7 +1,7 @@
 from reportlab.lib.units import mm
 from reportlab.platypus import Flowable, Paragraph
 
-from src.core.pdf.styles import NewsletterStyleSheet
+from core.pdf.styles import NewsletterStyleSheet
 
 
 class NoticeBlock(Flowable):

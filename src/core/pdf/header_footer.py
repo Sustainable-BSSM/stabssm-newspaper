@@ -3,7 +3,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from src.core.pdf.fonts import FONT_NAME, register_fonts
+from core.pdf.fonts import FONT_NAME, register_fonts
 
 register_fonts()
 

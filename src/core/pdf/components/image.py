@@ -19,7 +19,7 @@ class ImageBlock(Flowable):
         return self._width, self._height
 
     def draw(self):
-        from src.core.pdf.styles import NewsletterStyleSheet
+        from core.pdf.styles import NewsletterStyleSheet
         styles = NewsletterStyleSheet()
         x = (self._width - self._image.drawWidth) / 2
         self._image.drawOn(self.canv, x, 6 * mm if self._caption_text else 0)

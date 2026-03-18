@@ -1,7 +1,7 @@
 from reportlab.platypus import BaseDocTemplate
 
-from src.core.pdf.frame import BSSMNewsLatterFrame
-from src.core.pdf.header_footer import NewsletterFooter, NewsletterHeader
+from core.pdf.frame import BSSMNewsLatterFrame
+from core.pdf.header_footer import NewsletterFooter, NewsletterHeader
 
 
 class NewsletterDocument:
