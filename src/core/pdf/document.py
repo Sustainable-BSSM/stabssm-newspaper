@@ -28,5 +28,12 @@ class NewsletterDocument:
         self._story.extend(flowables)
         return self
 
+    def write_each(self, items, sep=None) -> "NewsletterDocument":
+        for i, item in enumerate(items):
+            self._story.append(item)
+            if sep is not None and i < len(items) - 1:
+                self._story.append(sep)
+        return self
+
     def build(self):
         self._doc.build(self._story)
