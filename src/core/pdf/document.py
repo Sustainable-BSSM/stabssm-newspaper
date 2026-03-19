@@ -18,10 +18,15 @@ class NewsletterDocument:
 
         layout.page_template.onPage = self._draw_fixed_elements
         self._doc = BaseDocTemplate(filename, pageTemplates=[layout.page_template])
+        self._story = []
 
     def _draw_fixed_elements(self, canvas, doc):
         self._header.draw(canvas, doc)
         self._footer.draw(canvas, doc)
 
-    def build(self, story: list):
-        self._doc.build(story)
+    def write(self, *flowables) -> "NewsletterDocument":
+        self._story.extend(flowables)
+        return self
+
+    def build(self):
+        self._doc.build(self._story)
