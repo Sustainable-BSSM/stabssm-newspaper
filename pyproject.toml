@@ -7,3 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "reportlab>=4.4.10",
 ]
+
+[tool.setuptools.package-data]
+"core.pdf" = ["*.ttf"]
