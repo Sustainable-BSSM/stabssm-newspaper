@@ -63,3 +63,5 @@ class NewsletterStyleSheet:
             backColor=colors.HexColor("#e8f4fd"),
             spaceAfter=3 * mm,
         )
+
+        self.LINK_COLOR = "#0066cc"
