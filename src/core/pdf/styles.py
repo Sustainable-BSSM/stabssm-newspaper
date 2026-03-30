@@ -64,4 +64,26 @@ class NewsletterStyleSheet:
             spaceAfter=3 * mm,
         )
 
+        self.section_title = ParagraphStyle(
+            "SectionTitle",
+            parent=base["Normal"],
+            fontName=FONT_NAME,
+            fontSize=16,
+            leading=20,
+            textColor=colors.HexColor("#1a1a2e"),
+            spaceBefore=2 * mm,
+            spaceAfter=1 * mm,
+        )
+
+        self.section_subtitle = ParagraphStyle(
+            "SectionSubtitle",
+            parent=base["Normal"],
+            fontName=FONT_NAME,
+            fontSize=10,
+            leading=14,
+            textColor=colors.HexColor("#888888"),
+            spaceBefore=0,
+            spaceAfter=3 * mm,
+        )
+
         self.LINK_COLOR = "#0066cc"

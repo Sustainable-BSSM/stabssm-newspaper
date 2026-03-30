@@ -1,3 +1,5 @@
+from typing import Optional
+
 from reportlab.platypus import BaseDocTemplate
 
 from core.pdf.frame import BSSMNewsLatterFrame
@@ -6,15 +8,20 @@ from core.pdf.header_footer import NewsletterFooter, NewsletterHeader
 
 class NewsletterDocument:
     def __init__(
-            self,
-            filename: str,
-            layout: BSSMNewsLatterFrame,
-            title: str,
-            issue: str,
-            date: str,
+        self,
+        filename: str,
+        layout: BSSMNewsLatterFrame,
+        title: str = "BSSM NEWSLETTER",
+        header: Optional[NewsletterHeader] = None,
+        footer: Optional[NewsletterFooter] = None,
+        logo_path: Optional[str] = None,
     ):
-        self._header = NewsletterHeader(title=title, issue=issue, date=date)
-        self._footer = NewsletterFooter()
+        self._header = (
+            header
+            if header is not None
+            else NewsletterHeader(title=title, logo_path=logo_path)
+        )
+        self._footer = footer if footer is not None else NewsletterFooter()
 
         layout.page_template.onPage = self._draw_fixed_elements
         self._doc = BaseDocTemplate(filename, pageTemplates=[layout.page_template])
